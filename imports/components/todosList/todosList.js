@@ -30,6 +30,20 @@ class TodosListCtrl {
         //clear form
         this.newTask = '';
     }
+
+    //Toggle checked property value
+    setChecked(task) {
+        Tasks.update(task._id, {
+            $set: {
+                checked: !task.checked
+            },
+        });
+    }
+
+    //remove task
+    removeTask(task) {
+        Tasks.remove(task._id);
+    }
 }
 
 export default angular.module('todosList', [
