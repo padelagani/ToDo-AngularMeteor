@@ -10,7 +10,12 @@ class TodosListCtrl {
 
         this.helpers({
             tasks() {
-                return Tasks.find({});
+                //Newest task at topgit status
+                return Tasks.find({}, {
+                    sort: {
+                        createdAt: -1
+                    }
+                });
             }
         })
     }
